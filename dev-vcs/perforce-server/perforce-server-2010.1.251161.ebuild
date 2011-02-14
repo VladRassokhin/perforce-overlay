@@ -33,11 +33,11 @@ pkg_setup() {
 src_unpack() {
 
 	cp ${DISTDIR}/${A} p4d
-}	
+}
 
 src_install() {
 	dosbin p4d
-	
+
 	insinto /etc/conf.d
 	newins ${FILESDIR}/p4d.confd p4d
 
@@ -49,7 +49,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo	
+	einfo
 	einfo "Remember to edit the config file /etc/conf.d/p4d"
 	einfo "By default, the journal file will be created in the same directory as"
 	einfo "the database."
