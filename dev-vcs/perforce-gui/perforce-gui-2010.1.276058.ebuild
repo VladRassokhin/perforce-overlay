@@ -21,8 +21,8 @@ SRC_URI="x86? (
 LICENSE="perforce"
 SLOT="0"
 KEYWORDS="-* ~x86 ~amd64"
-IUSE=""
-RESTRICT="mirror strip"
+IUSE="gtk"
+RESTRICT="mirror strip test"
 
 S=${WORKDIR}
 
@@ -31,4 +31,12 @@ src_install() {
 	insopts -m0755
 	insinto /opt
 	doins -r * || die
+
+	insinto /etc/revdep-rebuild
+	doins "${FILESDIR}/50-perforce-gui" || die
+
+	if use gtk; then
+		insinto /usr/share/applications
+		doins "${FILESDIR}/p4v.desktop" || die
+	fi
 }
