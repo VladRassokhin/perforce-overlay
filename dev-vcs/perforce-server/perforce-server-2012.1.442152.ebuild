@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header$
 
-inherit versionator eutils
-
 EAPI=2
+inherit versionator eutils
 
 REL=$(get_version_component_range 1-2)
 SHORTREL=${REL/#20/}
