@@ -31,17 +31,17 @@ pkg_setup() {
 
 src_unpack() {
 
-	cp ${DISTDIR}/${A} p4d
+	cp "${DISTDIR}/${A}" p4d
 }
 
 src_install() {
 	dosbin p4d
 
 	insinto /etc/conf.d
-	newins ${FILESDIR}/p4d.confd p4d
+	newins "${FILESDIR}/p4d.confd" p4d
 
 	exeinto /etc/init.d
-	newexe ${FILESDIR}/p4d.initd p4d
+	newexe "${FILESDIR}/p4d.initd" p4d
 
 	dodir /var/lib/perforce || die
 	fowners perforce:perforce /var/lib/perforce
