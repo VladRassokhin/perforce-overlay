@@ -13,7 +13,7 @@ HOMEPAGE="http://www.perforce.com/"
 SRC_URI="x86? (
 	ftp://ftp.perforce.com/perforce/r${SHORTREL}/bin.linux26x86/p4v.tgz -> \
 	${PF}-x86.tgz )
-    amd64? (
+	amd64? (
 	ftp://ftp.perforce.com/perforce/r${SHORTREL}/bin.linux26x86_64/p4v.tgz -> \
 	${PF}-amd64.tgz )"
 
