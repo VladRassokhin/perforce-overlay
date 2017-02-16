@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=2
+EAPI=6
 inherit versionator eutils
 
 REL=$(get_version_component_range 1-2)
@@ -32,9 +32,8 @@ src_install() {
 	cd p4v-${PVR} || die
 	[[ -f bin/assistant ]] && rm bin/assistant
 
-	insopts -m0755
-	insinto "/opt/${PN}"
-	doins -r * || die
+	dodir "/opt/${PN}"
+	cp -R * "${D}/opt/${PN}" || die "Install failed!"
 
 	for i in bin/* ; do
 		if [[ ${i} != *'.bin' && ${i} != *'.conf' ]]; then
